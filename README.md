@@ -55,3 +55,31 @@ APB features include:
        <img width="744" alt="waveform" src="https://github.com/karthikkbs05/AMBA-Protocols/assets/129792064/9b64dafe-c8db-415d-8788-79517d35d2a7">
 
        
+# AXI (Advanced eXtensible Interface) protocol 
+AXI is a high-performance, high-bandwidth protocol designed for connecting high-performance IP components, such as processors and memory controllers. It is designed to support the needs of high-frequency, high-throughput systems while providing features to ensure data integrity and minimize latency. AXI has several versions, including AXI4 and AXI4-Lite, each with specific characteristics.
+AXI features include:
+* Separate read and write channels to allow concurrent data transfers.
+* Support for out-of-order transactions to improve efficiency.
+* Burst transfers for efficient data movement.
+* Multiple transaction types (read, write, exclusive, etc.).
+* Support for multiple outstanding transactions to maximize throughput.
+
+## AXI slave operation 
+- Write :
+    - write operation timing diagram.
+
+      <img width="341" alt="image" src="https://github.com/karthikkbs05/AMBA-Protocols/assets/129792064/46f83d64-3927-44bb-866b-a490fca5dbb0">
+
+- Read :
+    - read operation timing diagram.
+
+      <img width="342" alt="image" src="https://github.com/karthikkbs05/AMBA-Protocols/assets/129792064/fcc3da14-5469-49a3-9508-d881a8b45a2f">
+
+
+
+
+
+
+
+
+
