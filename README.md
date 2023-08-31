@@ -7,11 +7,17 @@ The 2 protocols that I have designed using verilog RTL :
 - Files
    - [APB Design file](apb.v)
    - [APB Testbench](apb_tb.v)
+   - [AXI slave design file](axi_slave.v)
+   - [AXI testbench](axi_slave_tb.v)
 - Navigation through the report
    - [Introduction to APB](#apb-advanced-peripheral-bus-protocol)
    - [APB master operation](#apb-master-operations)
    - [APB design using verilog RTL](#design-uisng-verilog-rtl)
    - [APB Simulation results](#simulation-using-xilinx-vivado)
+   - [Introduction to AXI](#axi-advanced-extensible-interface-protocol)
+   - [AXI slave operation](#axi-slave-operation)
+   - [AXI slave design using verilog RTL](#axi-slave-design-using-verilog-rtl)
+   - [AXI simulation results](#simulation-results)
 
 # APB (Advanced Peripheral Bus) Protocol 
 APB is a lower-performance protocol designed for connecting slower peripheral devices, such as simple I/O peripherals and control interfaces. It operates at a slower clock speed compared to AXI and is intended for components that do not require high bandwidth.
@@ -75,6 +81,41 @@ AXI features include:
 
       <img width="342" alt="image" src="https://github.com/karthikkbs05/AMBA-Protocols/assets/129792064/fcc3da14-5469-49a3-9508-d881a8b45a2f">
 
+## AXI slave design using verilog RTL
+- [axi_slave.v](axi_slave.v) : AXI slave interface design file
+    - Read channel
+        - `ARADDR` : Specifies the address for a read transaction.
+        - `ARLEN` : Indicates the number of data transfers within a read burst.
+        - `ARSIZE` : Specifies the size of each data transfer in a read burst.
+        - `ARBURST` : Specifies the type of read burst (e.g., incrementing, wrapping).
+        - `ARVALID` : Indicates that valid read address information is available.
+        - `ARREADY` : Indicates that the slave is ready to accept the read address.
+        - `RDATA` : Carries the data read from the slave.
+        - `RRESP` : Indicates the response status of the read transaction (e.g., OKAY[1], ERROR[0]).
+        - `RLAST` : Indicates the last data beat in a read burst.
+        - `RVALID` : Indicates that valid read data is available.
+        - `RREADY` : Indicates that the master is ready to accept the read data.
+   - Write channel
+       - `AWADDR` : Specifies the address for a write transaction.
+       - `AWLEN` : Indicates the number of data transfers within a write burst.
+       - `AWSIZE` : Specifies the size of each data transfer in a write burst.
+       - `AWBURST` : Specifies the type of write burst (e.g., incrementing, wrapping).
+       - `AWVALID` : Indicates that valid write address information is available.
+       - `AWREADY` : Indicates that the slave is ready to accept the write address.
+       - `WDATA` : Carries the data to be written by the master.
+       - `WLAST` : Indicates the last data beat in a write burst.
+       - `WVALID` : Indicates that valid write data is available.
+       - `WREADY` : Indicates that the slave is ready to accept the write data.
+       - `BRESP` : Indicates the response status of the write transaction (e.g., OKAY, ERROR).
+       - `BVALID` : Indicates that a valid write response is available.
+       - `BREADY` : Indicates that the master is ready to accept the write response.
+- [axi_slave_tb.v](axi_slave_tb.v) : Testbench file.
+
+## Simulation Results 
+Simulation results from Xilinx Vivado 2014.4
+
+<img width="744" alt="image" src="https://github.com/karthikkbs05/AMBA-Protocols/assets/129792064/e3ada7d6-4bab-4818-9bfc-2829ae37affa">
+<img width="745" alt="image" src="https://github.com/karthikkbs05/AMBA-Protocols/assets/129792064/951d4861-5df0-4098-8d35-bc670f27d3dc">
 
 
 
