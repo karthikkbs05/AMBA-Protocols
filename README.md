@@ -5,7 +5,7 @@ The 2 protocols that I have designed using verilog RTL :
 * AXI (Advanced eXtensible Interface)
 # Quick Links 
 - Navigation through the report
-   - [Introduction to APB](#apb-(advanced-peripheral-bus)-protocol)
+   - [Introduction to APB](#apb-advanced-peripheral-bus-protocol)
    - [APB master operation](#apb-master-operations)
 * 
 # APB (Advanced Peripheral Bus) Protocol 
