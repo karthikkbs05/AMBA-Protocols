@@ -4,10 +4,10 @@ The 2 protocols that I have designed using verilog RTL :
 * APB (Advanced Peripheral Bus)
 * AXI (Advanced eXtensible Interface)
 # Quick Links 
-.
-.
-.
-.
+- Navigation through the report
+   - [Introduction to APB](#apb-(advanced-peripheral-bus)-protocol)
+   - [APB master operation](#apb-master-operations)
+* 
 # APB (Advanced Peripheral Bus) Protocol 
 APB is a lower-performance protocol designed for connecting slower peripheral devices, such as simple I/O peripherals and control interfaces. It operates at a slower clock speed compared to AXI and is intended for components that do not require high bandwidth.
 APB features include:
@@ -27,3 +27,26 @@ APB features include:
        <img width="343" alt="image" src="https://github.com/karthikkbs05/AMBA-Protocols/assets/129792064/a00a2bff-4d21-4dea-8300-0127df152e8a">
 
 ## Design uisng verilog RTL
+- [apb.v](apb.v) : Design file
+     - `PCLK` : The clock signal for synchronizing data transfers between the master and peripheral.
+     - `PSEL` : Indicates whether the peripheral is selected for a read or write operation.
+     - `PENABLE` : Signals that the data on the bus is valid and can be captured by the peripheral.
+     - `PWRITE` : Specifies whether the operation is a read (0) or write (1).
+     - `PWDATA` : Carries the data to be written to the peripheral during a write operation.
+     - `PRDATA` : Contains the data read from the peripheral during a read operation.
+     - `PADDR` : Specifies the address of the peripheral register to be accessed.
+     - `PREADY` : Indicates that the peripheral is ready to accept data during a write operation or that valid data is available during a read operation. 
+
+- [apb_tb.v](apb_tb.v) : Testbench file
+- Operating states :
+     - Shows the operating states of the APB interface.
+
+       <img width="271" alt="image" src="https://github.com/karthikkbs05/AMBA-Protocols/assets/129792064/c94bed88-7d0f-49cc-a593-c5591ee1de8f">
+
+## Simulation using Xilinx Vivado 2014.4
+- Simulation output :
+     - Behavioural Simulation.
+
+       <img width="744" alt="waveform" src="https://github.com/karthikkbs05/AMBA-Protocols/assets/129792064/9b64dafe-c8db-415d-8788-79517d35d2a7">
+
+       
