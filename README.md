@@ -11,7 +11,7 @@ The 2 protocols that I have designed using verilog RTL :
    - [Introduction to APB](#apb-advanced-peripheral-bus-protocol)
    - [APB master operation](#apb-master-operations)
    - [APB design using verilog RTL](#design-uisng-verilog-rtl)
-   - [APB Simulation results](simulation-using-xilinx-vivado)
+   - [APB Simulation results](#simulation-using-xilinx-vivado)
 
 # APB (Advanced Peripheral Bus) Protocol 
 APB is a lower-performance protocol designed for connecting slower peripheral devices, such as simple I/O peripherals and control interfaces. It operates at a slower clock speed compared to AXI and is intended for components that do not require high bandwidth.
