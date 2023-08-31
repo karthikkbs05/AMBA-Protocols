@@ -4,10 +4,15 @@ The 2 protocols that I have designed using verilog RTL :
 * APB (Advanced Peripheral Bus)
 * AXI (Advanced eXtensible Interface)
 # Quick Links 
+- Files
+   - [APB Design file](apb.v)
+   - [APB Testbench](apb_tb.v)
 - Navigation through the report
    - [Introduction to APB](#apb-advanced-peripheral-bus-protocol)
    - [APB master operation](#apb-master-operations)
-* 
+   - [APB design using verilog RTL](#design-uisng-verilog-rtl)
+   - [APB Simulation results](simulation-using-xilinx-vivado)
+
 # APB (Advanced Peripheral Bus) Protocol 
 APB is a lower-performance protocol designed for connecting slower peripheral devices, such as simple I/O peripherals and control interfaces. It operates at a slower clock speed compared to AXI and is intended for components that do not require high bandwidth.
 APB features include:
@@ -43,7 +48,7 @@ APB features include:
 
        <img width="271" alt="image" src="https://github.com/karthikkbs05/AMBA-Protocols/assets/129792064/c94bed88-7d0f-49cc-a593-c5591ee1de8f">
 
-## Simulation using Xilinx Vivado 2014.4
+## Simulation using Xilinx Vivado
 - Simulation output :
      - Behavioural Simulation.
 
