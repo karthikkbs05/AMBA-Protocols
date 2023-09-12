@@ -33,7 +33,8 @@ input [1:0]DWREQ //00-no operation, 01-read, 11-write, 10-nop
     reg [2:0]current_state,
              next_state=IDLE;
     reg [31:0]DADDR=32'd16,DDATA;       
-             
+    reg [1:0]REQ;
+            
     always@(posedge PCLK,negedge PRESETn)
     begin
     if(~PRESETn)
@@ -48,7 +49,10 @@ input [1:0]DWREQ //00-no operation, 01-read, 11-write, 10-nop
     case(current_state)
       IDLE : begin
                if(DWREQ[0])
-                 next_state <= SETUP;
+                 begin
+                  next_state <= SETUP;
+                  REQ = DWREQ;
+                 end
                else 
                  next_state <= IDLE;
              end
@@ -58,13 +62,21 @@ input [1:0]DWREQ //00-no operation, 01-read, 11-write, 10-nop
       ACCESS : begin
                  if(PREADY)
                    begin
-                   if(DWREQ[1])
-                     next_state <= IDLE;
+                   if(REQ[1])
+                     begin
+                       if(DWREQ[1])
+                         next_state <= SETUP;
+                       else 
+                         next_state <= IDLE;
+                     end
                    else
                      begin
                        DDATA = PRDATA; 
                        DDATA <= DDATA+1; 
-                       next_state <= IDLE;
+                       if(DWREQ == 2'b01)
+                         next_state <= SETUP;
+                       else 
+                         next_state <= IDLE;
                      end  
                    end
                  else 
@@ -79,3 +91,4 @@ input [1:0]DWREQ //00-no operation, 01-read, 11-write, 10-nop
     assign PENABLE = (current_state == ACCESS);
     assign PWRITE = (DWREQ[1] && PSELx);
 endmodule
+
