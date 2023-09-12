@@ -43,14 +43,14 @@ initial
 begin
 #5 PRESETn = 1;
 #10 DWREQ = 2'b01;PRDATA = 32'd16;
-#10; 
+#10 DWREQ=2'b00; 
 #10 PREADY = 1;
-#10 PREADY = 0;PRDATA = 32'd0;DWREQ=2'b00;
+#10 PREADY = 0;PRDATA = 32'd0;
 #10;
 #10 DWREQ =2'b11;
-#10
+#10 DWREQ = 2'b00;
 #10 PREADY = 1;
-#10 PREADY = 0;DWREQ = 2'b00;
+#10 PREADY = 0;
 #20 PRESETn = 0;
 $finish;
 
