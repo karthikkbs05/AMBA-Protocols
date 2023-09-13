@@ -173,7 +173,7 @@ output rvalid
                    else 
                      next_state <= PREACCESS;
                    case(size)
-                     3'b000 : rdata = (memory[addr] & 16'hff00);
+                       3'b000 : rdata = (memory[addr] & 16'h00ff);
                      3'b001 : rdata = memory[addr];
                      default : rdata = 16'd0;
                    endcase
